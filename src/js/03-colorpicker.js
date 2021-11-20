@@ -18,7 +18,6 @@ import colorCardsTpl from "../templates/color-cards.hbs";
 
 
 // console.log(colorCardsTpl(colors));
-console.log(colorCardTpl(colors));
 
 
 const paletteContainer = document.querySelector('.js-palette');
