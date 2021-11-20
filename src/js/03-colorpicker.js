@@ -13,6 +13,13 @@ const colors = [
   { hex: '#795548', rgb: '121,85,72' },
   { hex: '#607d8b', rgb: '96,125,139' },
 ];
+import colorCardTpl from "../templates/color-card.hbs";
+import colorCardsTpl from "../templates/color-cards.hbs";
+
+
+// console.log(colorCardsTpl(colors));
+console.log(colorCardTpl(colors));
+
 
 const paletteContainer = document.querySelector('.js-palette');
 
@@ -20,19 +27,10 @@ paletteContainer.insertAdjacentHTML('beforeend', createColorCardsMarkup(colors))
 
 paletteContainer.addEventListener('click', onPaletteContainerClick);
 
-function createColorCardsMarkup(colors) {
-  return colors.map(({ hex, rgb }) => {
-      return `
-    <div class="color-card">
-      <div class="color-swatch" data-hex="${hex}" data-rgb="${rgb}" style="background-color: ${hex}"></div>
-      <div class="color-meta">
-        <p>HEX: ${hex}</p>
-        <p>RGB: ${rgb}</p>
-      </div>
-    </div>
-    `;
-    })
-    .join('');
+function createColorCardsMarkup(color) {
+  // return color.map(color=>colorCardTpl(color))
+  //   .join('');
+  return colorCardsTpl(colors);
 }
 
 function onPaletteContainerClick(e) {
